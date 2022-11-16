@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>log</title>
+</head>
+<h1>欢迎使用驾校管理系统</h1>
+<body>
+<p th:text="${error}"></p>
+<form action="/login", method="post">
+    <div>
+        用户名<input type="text" name="name">
+    </div>
+    <div>
+        密 码<input type="text" name="password">
+    </div>
+    <div>
+        <input type="submit" value="提交">
+    </div>
+</form>
+
+<ul>
+    <li><a href="/reg">注册</a></li>
+</ul>
+</body>
+</html>
