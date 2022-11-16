@@ -36,7 +36,19 @@
 
     <div id="content" style="background-color:#F0F0F0;height:1000px;width:1600px;float:left;">
         <h1>学生成绩列表</h1>
-        <table>
+        <table border="1">
+            <tr>
+                <th>id</th>
+                <th>姓名</th>
+                <th>科目一考试成绩</th>
+                <th>科目二考试成绩</th>
+                <th>科目三考试成绩</th>
+                <th>科目四考试成绩</th>
+                <th>科目一考试次数</th>
+                <th>科目二考试次数</th>
+                <th>科目三考试次数</th>
+                <th>科目四考试次数</th>
+            </tr>
             <tr th:each="m:${list}">
                 <td th:text="${m.id}"></td>
                 <td th:text="${m.name}"></td>

@@ -46,23 +46,29 @@
             <input type="submit" value="确定">
         </form>
 
-
-        <table>
+        <h2>学生列表:</h2>
+        <table border="1">
+            <tr>
+                <th>id</th>
+                <th>姓名</th>
+                <th>报名时间</th>
+                <th>是否毕业</th>
+            </tr>
             <tr th:each="m:${student}">
                 <td th:text="${m.id}"></td>
                 <td th:text="${m.name}"></td>
                 <td th:text="${m.joinTime}"></td>
                 <td th:text="${m.isPassed}"></td>
             </tr>
-        </table>
-        <table>
             <tr th:each="m:${students}">
                 <td th:text="${m.id}"></td>
                 <td th:text="${m.name}"></td>
                 <td th:text="${m.joinTime}"></td>
                 <td th:text="${m.isPassed}"></td>
             </tr>
+
         </table>
+
     </div>
 
     <div id="footer" style="background-color:#CCFFCC;clear:both;text-align:center;">

@@ -19,7 +19,7 @@ public class StudentController {
     IStudentService studentService;
 
     @RequestMapping(path="/newStudent",method = RequestMethod.POST)
-    public String xia(
+    public String newStudent(
             @RequestParam(name="name")
             String name){
         studentService.newStudent(name);
@@ -27,7 +27,7 @@ public class StudentController {
     }
 
     @RequestMapping(path="/addGrade",method = RequestMethod.POST)
-    public String xie(
+    public String addGrade(
             @RequestParam(name="id")
             int id,
             @RequestParam(name="n")
@@ -39,7 +39,7 @@ public class StudentController {
     }
 
     @RequestMapping(path="/students",method = RequestMethod.POST)
-    public String la(
+    public String students(
             @RequestParam(name="status")
             String status, Model model){
         List<Student> studentList = studentService.getStudentByPassed(status);

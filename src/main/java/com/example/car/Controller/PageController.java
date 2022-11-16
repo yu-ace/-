@@ -23,34 +23,34 @@ public class PageController {
     IUserService userService;
 
     @RequestMapping(path = "/reg" , method = RequestMethod.GET)
-    public String sha(){
+    public String reg(){
         return "register";
     }
 
     @RequestMapping(path ="/log",method = RequestMethod.GET)
-    public String dou(){
+    public String log(){
         return "login";
     }
 
     @RequestMapping(path = "/new",method = RequestMethod.GET)
-    public String ke(){
+    public String newStudent(){
         return "newStudent";
     }
 
     @RequestMapping(path = "/add",method = RequestMethod.GET)
-    public String yi(){
+    public String add(){
         return "addGrade";
     }
 
     @RequestMapping(path = "/list",method = RequestMethod.GET)
-    public String xie(Model model){
+    public String list(Model model){
         List<Student> studentList = studentService.getStudentGradeList();
         model.addAttribute("list",studentList);
         return "studentList";
     }
 
     @RequestMapping(path="/student",method = RequestMethod.GET)
-    public String jiu(Model model){
+    public String student(Model model){
         studentService.changePassed();
         List<Student> studentList = studentService.getStudentList();
         model.addAttribute("student",studentList);
@@ -58,24 +58,25 @@ public class PageController {
     }
 
     @RequestMapping(path="/userList",method = RequestMethod.GET)
-    public String sui(Model model){
+    public String userList(Model model){
         List<User> userList = userService.getUserList();
         model.addAttribute("user",userList);
         return "userList";
     }
 
     @RequestMapping(path = "/change",method = RequestMethod.GET)
-    public String bin(){
+    public String change(){
         return "changePassword";
     }
 
     @RequestMapping(path = "/delete",method = RequestMethod.GET)
-    public String la(){
+    public String delete(){
         return "delete";
     }
 
     @RequestMapping(path="/students",method = RequestMethod.GET)
-    public String laa(){
+    public String students(){
         return "student";
     }
+
 }
