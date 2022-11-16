@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>reg</title>
+  <title>changePassword</title>
 </head>
 
 <div id="container" style="width:1800px">
@@ -35,27 +35,20 @@
   </div>
 
   <div id="content" style="background-color:#E0FFFF;height:1000px;width:1600px;float:left;">
-    <form action="/register" method="post">
+    <h2>删除用户</h2>
+    <form action="/delete" method="post">
       <div>
+        <p th:text="${tip1}"></p>
         <label>
-          用户昵称
-          <input type="text" name="name">
+          请输入要删除的用户id<input type="number" name="delete">
         </label>
       </div>
       <div>
-        <label>
-          密 码
-          <input type="text" name="password">
-        </label>
-      </div>
-      <div>
-        <input type="submit" value="提交">
+        <input type="submit" value="确定">
       </div>
     </form>
   </div>
-
   <div id="footer" style="background-color:#CCFFCC;clear:both;text-align:center;">
     版权 你不可以动哦</div>
 </div>
 </html>
-

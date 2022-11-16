@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>list</title>
+    <title>student</title>
 </head>
 
 <div id="container" style="width:1800px">
@@ -35,19 +35,32 @@
     </div>
 
     <div id="content" style="background-color:#F0F0F0;height:1000px;width:1600px;float:left;">
-        <h1>学生成绩列表</h1>
+        <h1>学生列表</h1>
+        <form action="/students" method="post">
+            <label>
+                是否毕业<select name="status">
+                    <option value="已毕业">已毕业</option>
+                    <option value="未毕业"selected>未毕业</option>
+                </select>
+            </label>
+            <input type="submit" value="确定">
+        </form>
+
+
         <table>
-            <tr th:each="m:${list}">
+            <tr th:each="m:${student}">
                 <td th:text="${m.id}"></td>
                 <td th:text="${m.name}"></td>
-                <td th:text="${m.class1Grade}"></td>
-                <td th:text="${m.class2Grade}"></td>
-                <td th:text="${m.class3Grade}"></td>
-                <td th:text="${m.class4Grade}"></td>
-                <td th:text="${m.class1Number}"></td>
-                <td th:text="${m.class2Number}"></td>
-                <td th:text="${m.class3Number}"></td>
-                <td th:text="${m.class4Number}"></td>
+                <td th:text="${m.joinTime}"></td>
+                <td th:text="${m.isPassed}"></td>
+            </tr>
+        </table>
+        <table>
+            <tr th:each="m:${students}">
+                <td th:text="${m.id}"></td>
+                <td th:text="${m.name}"></td>
+                <td th:text="${m.joinTime}"></td>
+                <td th:text="${m.isPassed}"></td>
             </tr>
         </table>
     </div>

@@ -2,11 +2,14 @@ package com.example.car.model;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class User {
     int id;
     String name;
     String password;
+    String newPassword;
 
     public int getId() {
         return id;
@@ -30,5 +33,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
     }
 }

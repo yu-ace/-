@@ -1,11 +1,15 @@
 package com.example.car.Controller;
 
 import com.example.car.Service.IStudentService;
+import com.example.car.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 
 @Controller
@@ -32,5 +36,14 @@ public class StudentController {
             int grade){
         studentService.addGrade(id,number,grade);
         return "addGrade";
+    }
+
+    @RequestMapping(path="/students",method = RequestMethod.POST)
+    public String la(
+            @RequestParam(name="status")
+            String status, Model model){
+        List<Student> studentList = studentService.getStudentByPassed(status);
+        model.addAttribute("students",studentList);
+        return "student";
     }
 }
