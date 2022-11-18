@@ -1,9 +1,8 @@
-package com.example.car.Service.impl;
+package com.example.car.service.impl;
 
-import com.example.car.Service.IStudentService;
+import com.example.car.service.IStudentService;
 import com.example.car.dao.StudentDao;
 import com.example.car.model.Student;
-import com.example.car.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

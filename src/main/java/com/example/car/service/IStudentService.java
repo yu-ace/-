@@ -1,7 +1,6 @@
-package com.example.car.Service;
+package com.example.car.service;
 
 import com.example.car.model.Student;
-import com.example.car.model.User;
 
 import java.util.List;
 

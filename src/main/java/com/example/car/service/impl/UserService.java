@@ -1,6 +1,6 @@
-package com.example.car.Service.impl;
+package com.example.car.service.impl;
 
-import com.example.car.Service.IUserService;
+import com.example.car.service.IUserService;
 import com.example.car.dao.UserDao;
 import com.example.car.model.User;
 import org.springframework.beans.factory.annotation.Autowired;

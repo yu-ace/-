@@ -1,7 +1,7 @@
-package com.example.car.Controller;
+package com.example.car.controller;
 
-import com.example.car.Service.IStudentService;
-import com.example.car.Service.IUserService;
+import com.example.car.service.IStudentService;
+import com.example.car.service.IUserService;
 import com.example.car.model.Student;
 import com.example.car.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 

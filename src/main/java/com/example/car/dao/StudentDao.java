@@ -1,6 +1,5 @@
 package com.example.car.dao;
 
-import com.example.car.Service.impl.StudentService;
 import com.example.car.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
