@@ -125,6 +125,29 @@ public class StudentDao {
         }
     }
 
+    public List<Student> studentGradeListPassed(){
+        try {
+            String sqlStr = "select * from student where (class1Grade >= 90 and class2Grade >= 90 " +
+                    "and class3Grade >= 90 and class4Grade >= 90);";
+            Connection connection = connectionPool.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlStr);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<Student> studentPassedList = new ArrayList<>();
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                Student student = new Student();
+                student.setId(id);
+                student.setName(name);
+                studentPassedList.add(student);
+            }
+            connectionPool.returnConnection(connection);
+            return studentPassedList;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void changePassed(int id){
         try {
             String str = "update studentList set is_passed = '%s' where id = %d;";
@@ -191,4 +214,5 @@ public class StudentDao {
             throw new RuntimeException(e);
         }
     }
+
 }

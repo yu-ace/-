@@ -37,17 +37,8 @@ public class StudentService implements IStudentService {
 
     @Override
     public void changePassed() {
-        List<Student> studentList = studentDao.studentGradeList();
-        List<Student> students = new ArrayList<>();
+        List<Student> studentList = studentDao.studentGradeListPassed();
         for(Student student : studentList){
-            if(student.getClass1Grade() >= 90
-                    && student.getClass2Grade() >= 90
-                    && student.getClass3Grade() >= 90
-                    && student.getClass4Grade() >= 90){
-                students.add(student);
-            }
-        }
-        for(Student student : students){
             studentDao.changePassed(student.getId());
         }
     }
