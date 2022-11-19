@@ -21,7 +21,7 @@
         <ul>
             成绩管理
             <li><a href="/add">录入学生成绩</a></li>
-
+            <li><a href="/examRecords">考试记录</a></li>
             <li><a href="/list">学生成绩列表</a></li>
         </ul>
         <ul>
@@ -30,7 +30,7 @@
             <li><a href="/reg">添加用户</a> </li>
             <li><a href="/delete">删除用户</a> </li>
             <li><a href="/change">更改密码</a></li>
-            <li><a href="/log">退出系统</a></li>
+            <li><a href="/login">退出系统</a></li>
         </ul>
     </div>
 
@@ -44,10 +44,6 @@
                 <th>科目二考试成绩</th>
                 <th>科目三考试成绩</th>
                 <th>科目四考试成绩</th>
-                <th>科目一考试次数</th>
-                <th>科目二考试次数</th>
-                <th>科目三考试次数</th>
-                <th>科目四考试次数</th>
             </tr>
             <tr th:each="m:${list}">
                 <td th:text="${m.id}"></td>
@@ -56,10 +52,6 @@
                 <td th:text="${m.class2Grade}"></td>
                 <td th:text="${m.class3Grade}"></td>
                 <td th:text="${m.class4Grade}"></td>
-                <td th:text="${m.class1Number}"></td>
-                <td th:text="${m.class2Number}"></td>
-                <td th:text="${m.class3Number}"></td>
-                <td th:text="${m.class4Number}"></td>
             </tr>
         </table>
     </div>

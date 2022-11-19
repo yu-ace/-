@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
+
 
 @Controller
 public class UserController {
@@ -21,7 +23,12 @@ public class UserController {
             @RequestParam(name="name")
             String name,
             @RequestParam(name="password")
-            String password){
+            String password,Model model,HttpSession session){
+        User user1 = (User) session.getAttribute("user");
+        if(user1 == null){
+            model.addAttribute("error","您已退出系统，请重新登陆");
+            return "login";
+        }
         userService.register(name,password);
         return "register";
     }
@@ -31,15 +38,15 @@ public class UserController {
             @RequestParam(name="name")
             String name,
             @RequestParam(name="password")
-            String password, Model model){
+            String password, Model model, HttpSession session){
         User user = userService.getUser(name);
         if(user == null){
             model.addAttribute("error","该用户不存在！");
             return "login";
         }
         if(user.getPassword().equals(password)){
-            model.addAttribute("user",user);
-            return "driveBoard";
+            session.setAttribute("user",user);
+            return "redirect:/driveBoard";
         }else{
             model.addAttribute("error","密码错误！");
             return "login";
@@ -55,7 +62,12 @@ public class UserController {
             @RequestParam(name="newPassword")
             String newPassword,
             @RequestParam(name="newPassword1")
-            String newPassword1,Model model){
+            String newPassword1,Model model,HttpSession session){
+        User user1 = (User) session.getAttribute("user");
+            if(user1 == null){
+                model.addAttribute("error","您已退出系统，请重新登陆");
+                return "login";
+            }
         User user = userService.getUserById(id);
         if(user == null){
             model.addAttribute("tip","该用户不存在！");
@@ -82,7 +94,12 @@ public class UserController {
     @RequestMapping(path="delete",method = RequestMethod.POST)
     public String delete(
             @RequestParam(name="delete")
-            int id,Model model){
+            int id,Model model,HttpSession session){
+        User user1 = (User) session.getAttribute("user");
+        if(user1 == null){
+            model.addAttribute("error","您已退出系统，请重新登陆");
+            return "login";
+        }
         User user = userService.getUserById(id);
         if(user == null){
             model.addAttribute("tip1","该用户不存在！");

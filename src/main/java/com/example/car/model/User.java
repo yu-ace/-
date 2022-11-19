@@ -1,15 +1,26 @@
 package com.example.car.model;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
 import java.util.Date;
 
-@Component
+@Entity
+@Table(name = "user")
+@DynamicUpdate
 public class User {
+    @Id
+    @Column(name = "id")
     int id;
+    @Column(name = "name")
     String name;
+    @Column(name = "password")
     String password;
+    @Transient
     String newPassword;
+    @Column(name = "is_delete")
+    int isDelete;
 
     public int getId() {
         return id;
@@ -41,5 +52,13 @@ public class User {
 
     public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
+    }
+
+    public int getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(int isDelete) {
+        this.isDelete = isDelete;
     }
 }

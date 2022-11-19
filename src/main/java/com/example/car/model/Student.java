@@ -1,23 +1,31 @@
 package com.example.car.model;
 
-import org.springframework.stereotype.Component;
+import org.hibernate.annotations.DynamicUpdate;
 
+import javax.persistence.*;
 import java.util.Date;
 
-@Component
+@Entity
+@Table(name = "student")
+@DynamicUpdate
 public class Student {
+    @Id
+    @Column(name = "student_id")
     int id;
+    @Column(name = "name")
     String name;
+    @Column(name = "join_time")
     Date joinTime;
+    @Column(name = "is_passed")
     String isPassed;
+    @Column(name = "class1_grade")
     int class1Grade;
+    @Column(name = "class2_grade")
     int class2Grade;
+    @Column(name = "class3_grade")
     int class3Grade;
+    @Column(name = "class4_grade")
     int class4Grade;
-    int class1Number;
-    int class2Number;
-    int class3Number;
-    int class4Number;
 
     public int getId() {
         return id;
@@ -33,6 +41,22 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Date getJoinTime() {
+        return joinTime;
+    }
+
+    public void setJoinTime(Date joinTime) {
+        this.joinTime = joinTime;
+    }
+
+    public String getIsPassed() {
+        return isPassed;
+    }
+
+    public void setIsPassed(String isPassed) {
+        this.isPassed = isPassed;
     }
 
     public int getClass1Grade() {
@@ -65,53 +89,5 @@ public class Student {
 
     public void setClass4Grade(int class4Grade) {
         this.class4Grade = class4Grade;
-    }
-
-    public Date getJoinTime() {
-        return joinTime;
-    }
-
-    public void setJoinTime(Date joinTime) {
-        this.joinTime = joinTime;
-    }
-
-    public String getIsPassed() {
-        return isPassed;
-    }
-
-    public void setIsPassed(String isPassed) {
-        this.isPassed = isPassed;
-    }
-
-    public int getClass1Number() {
-        return class1Number;
-    }
-
-    public void setClass1Number(int class1Number) {
-        this.class1Number = class1Number;
-    }
-
-    public int getClass2Number() {
-        return class2Number;
-    }
-
-    public void setClass2Number(int class2Number) {
-        this.class2Number = class2Number;
-    }
-
-    public int getClass3Number() {
-        return class3Number;
-    }
-
-    public void setClass3Number(int class3Number) {
-        this.class3Number = class3Number;
-    }
-
-    public int getClass4Number() {
-        return class4Number;
-    }
-
-    public void setClass4Number(int class4Number) {
-        this.class4Number = class4Number;
     }
 }

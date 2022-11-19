@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>reg</title>
+  <title>student</title>
 </head>
 
 <div id="container" style="width:1800px">
@@ -34,29 +34,44 @@
     </ul>
   </div>
 
-  <div id="content" style="background-color:#E0FFFF;height:1000px;width:1600px;float:left;">
-    <form action="/register" method="post">
-      <div>
-        <h2>添加用户</h2>
-        <label>
-          用户昵称
-          <input type="text" name="name">
-        </label>
-      </div>
-      <div>
-        <label>
-          密 码
-          <input type="text" name="password">
-        </label>
-      </div>
-      <div>
-        <input type="submit" value="提交">
-      </div>
+  <div id="content" style="background-color:#F0F0F0;height:1000px;width:1600px;float:left;">
+    <h1>考试记录</h1>
+    <form action="/examRecord" method="post">
+      <label>
+        输入学生id<input type="number" name="id">
+      </label>
+      <input type="submit" value="确定">
     </form>
+
+    <h2>考试记录:</h2>
+    <table border="1">
+      <tr>
+        <th>考试id</th>
+        <th>学生id</th>
+        <th>考试时间</th>
+        <th>考试科目id</th>
+        <th>考试成绩</th>
+      </tr>
+      <tr th:each="m:${examRecords}">
+        <td th:text="${m.id}"></td>
+        <td th:text="${m.studentId}"></td>
+        <td th:text="${m.examTime}"></td>
+        <td th:text="${m.subjectId}"></td>
+        <td th:text="${m.grade}"></td>
+      </tr>
+      <tr th:each="m:${examRecord}">
+        <td th:text="${m.id}"></td>
+        <td th:text="${m.studentId}"></td>
+        <td th:text="${m.examTime}"></td>
+        <td th:text="${m.subjectId}"></td>
+        <td th:text="${m.grade}"></td>
+      </tr>
+
+    </table>
+
   </div>
 
   <div id="footer" style="background-color:#CCFFCC;clear:both;text-align:center;">
     版权 你不可以动哦</div>
 </div>
 </html>
-

@@ -15,13 +15,12 @@
         <ul>
             学生管理
             <li><a href="/new">新生信息注册</a>
-
             <li><a href="/student">查看学生列表</a> </li>
         </ul>
         <ul>
             成绩管理
             <li><a href="/add">录入学生成绩</a></li>
-
+            <li><a href="/examRecords">考试记录</a></li>
             <li><a href="/list">学生成绩列表</a></li>
         </ul>
         <ul>
@@ -30,13 +29,14 @@
             <li><a href="/reg">添加用户</a> </li>
             <li><a href="/delete">删除用户</a> </li>
             <li><a href="/change">更改密码</a></li>
-            <li><a href="/log">退出系统</a></li>
+            <li><a href="/login">退出系统</a></li>
         </ul>
     </div>
 
     <div id="content" style="background-color:#E0FFFF;height:1000px;width:1600px;float:left;">
         <form action="/addGrade" method="post">
             <div>
+                <h2>录入成绩</h2>
                 <label>
                     学生id
                     <input type="text" name="id">
@@ -46,10 +46,10 @@
                 <label>
                     考试科目
                     <select name="n">
-                        <option value="class1Grade" selected>科目一</option>
-                        <option value="class2Grade">科目二</option>
-                        <option value="class3Grade">科目三</option>
-                        <option value="class4Grade">科目四</option>
+                        <option value="1" selected>科目一</option>
+                        <option value="2">科目二</option>
+                        <option value="3">科目三</option>
+                        <option value="4">科目四</option>
                     </select>
                 </label>
             </div>
